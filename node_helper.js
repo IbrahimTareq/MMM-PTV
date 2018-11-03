@@ -106,7 +106,9 @@ module.exports = NodeHelper.create({
               if (i > 3){
                 break;
               }
-              disruptions.push(res[i].title);
+              var title = res[i].title;
+	            var str = title.split(":").pop();
+              disruptions.push(str);
             }
 
             self.sendSocketNotification('DISRUPTIONS_RESULT', disruptions);
